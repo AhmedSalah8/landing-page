@@ -12,6 +12,39 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const plans = [
+  {
+    title: "Money Momentum",
+    rate: "7.20%",
+    duration: "3 yrs CAGR",
+    type: "STRATEGY",
+    description:
+      "Tract premium helps you start saver investments insights covering.",
+  },
+  {
+    title: "Long-Term",
+    rate: "14.20%",
+    duration: "25 yrs CAGR",
+    type: "PLANS",
+    description: "Create a vision. to get started, imagine your dream life. ",
+  },
+  {
+    title: "Focussed",
+    rate: "11.20%",
+    duration: "1 yr returns",
+    type: "STRATEGY",
+    description:
+      "Be focused. Life planning, however, can serve as a roadmap or guide. ",
+  },
+  {
+    title: "Fixed Income",
+    rate: "8.20%",
+    duration: "5 yrs CAGR",
+    type: "PLANS",
+    description:
+      "Get multiple benefits, and lumpsum option & Guaranteed Returns. ",
+  },
+];
 
 export default function Home() {
   return (
@@ -26,91 +59,134 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
-
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <nav className={styles.navbar}>
+            <div className={styles.rightSide}>
               <Image
                 className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
+                src="/logo.svg"
+                alt="Logo"
+                width={32}
+                height={32}
+                priority
               />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
+              <span className={styles.title}>/ insurance@tiropay.au</span>
+            </div>
+            <div className={styles.leftSide}>
+              <div className={styles.authButtons}>
+                <button className={styles.login}>Login</button>
+                <button className={styles.getStarted}>Get Started</button>
+              </div>
+            </div>
+          </nav>
+          {/* header */}
+          <section className={styles.headerSection}>
+            <div className={styles.headerText}>
+              <h1 className={styles.headerTitle}>
+                Life Planing, Making <br /> Easy to Turn Dreams to Reality.
+              </h1>
+              <p className={styles.headerSubtitle}>
+                Get Exclusive offers on purchase of any plans
+              </p>
+            </div>
+            <div className={styles.inputContainer}>
+              <svg
+                className={styles.emailIcon}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path d="M568.4 37.7C578.2 34.2 589 36.7 596.4 44C603.8 51.3 606.2 62.2 602.7 72L424.7 568.9C419.7 582.8 406.6 592 391.9 592C377.7 592 364.9 583.4 359.6 570.3L295.4 412.3C290.9 401.3 292.9 388.7 300.6 379.7L395.1 267.3C400.2 261.2 399.8 252.3 394.2 246.7C388.6 241.1 379.6 240.7 373.6 245.8L261.2 340.1C252.1 347.7 239.6 349.7 228.6 345.3L70.1 280.8C57 275.5 48.4 262.7 48.4 248.5C48.4 233.8 57.6 220.7 71.5 215.7L568.4 37.7z" />
+              </svg>
+              <input
+                className={styles.input}
+                type="text"
+                id="email"
+                autoComplete="off"
+                name="text"
+                placeholder=""
+              />
+              <label className={styles.label} htmlFor="email">
+                Your Email
+              </label>
+              <button className={styles.getStarted}>Sign Up</button>
+            </div>
+          </section>
+          {/* End header */}
+
+          {/* Hero */}
+          <section className={styles.heroSection}>
+            <div className={styles.heroTitle}>
+              <div>
+                <h1 className={styles.mainTitle}>Featured Plans</h1>
+              </div>
+              <div>
+                <h3 className={styles.secoundTitle}>Explore All</h3>
+              </div>
+            </div>
+            <div className={styles.cardContainer}>
+              {plans.map((plan, i) => (
+                <div key={plan.title} className={styles.card}>
+                  <span className={styles.cardType}> {plan.type} </span>
+
+                  <h3 className="font-semibold text-lg">{plan.title}</h3>
+                  <p className={styles.cardDescription}>{plan.description}</p>
+                  <div className={styles.line} />
+                  <div className={styles.cardStats}>
+                    <span className={styles.cardYears}>{plan.duration}</span>
+                    <div className={styles.cardPrecentContainer}>
+                      <h2 className={styles.cardPrecent}>{plan.rate}</h2>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className={styles.cardArrow}
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+          <div className={styles.line} />
+
+          {/* End Hero */}
+          <div className={styles.footer}>
+            <div className={styles.footerLinks}>
+              <a
+                href="https://www.iciciprulife.com/blog/term-insurance-blogs/what-is-policy-term.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tearms of Policy
+              </a>
+              <span className={styles.dot}></span>
+              <a
+                href="https://www.clearvoice.com/resources/what-is-a-customer-story/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Customer Story
+              </a>
+            </div>
+            <a href="#" className={styles.footerArrow}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                />
+              </svg>
             </a>
           </div>
         </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
-        </footer>
       </div>
     </>
   );
