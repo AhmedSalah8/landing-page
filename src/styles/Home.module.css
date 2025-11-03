@@ -228,7 +228,7 @@
   justify-content: center;
   gap: 10px;
   position: relative;
-  /* width: 43%; */
+  min-width: 40%;
   align-items: center;
 }
 .emailIcon {
